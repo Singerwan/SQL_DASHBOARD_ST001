@@ -4,6 +4,7 @@ import numpy as np
 from streamlit_pdf_viewer import pdf_viewer
 import streamlit as st
 import geopandas as gpd
+from streamlit_folium import st_folium
 import matplotlib.pyplot as plt
 import matplotlib
 import folium
