@@ -2,6 +2,7 @@ pandas
 streamlit_pdf_viewer
 plotly
 numpy 
+streamlit_folium
 streamlit
 geopandas
 matplotlib
