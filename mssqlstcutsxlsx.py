@@ -166,7 +166,7 @@ def main():
                   
             st.map(chinalon_lat_1[['latitude','longitude']],size="population",color=[1.0, 0.1,0.2,0.5])     
 
-           gpdmap1=chinalon_lat_1.explore( cmap='jet',
+            gpdmap1=chinalon_lat_1.explore( cmap='jet',
                                             column='city',
                                             marker_kwds={'radius':5},
                                             tooltip=["population","country",'city','id'])
