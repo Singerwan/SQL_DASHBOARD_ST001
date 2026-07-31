@@ -164,6 +164,21 @@ def main():
             chinalon_lat_1['latitude'] = chinalon_lat_1.lat
             chinalon_lat_1['longitude'] = chinalon_lat_1.lng          
                   
-            st.map(chinalon_lat_1[['latitude','longitude']],size="population",color=[1.0, 0.1,0.2,0.5])                        
+            st.map(chinalon_lat_1[['latitude','longitude']],size="population",color=[1.0, 0.1,0.2,0.5])     
+
+           gpdmap1=chinalon_lat_1.explore( cmap='jet',
+                                            column='city',
+                                            marker_kwds={'radius':5},
+                                            tooltip=["population","country",'city','id'])
+            
+            st_folium(gpdmap1,width=1200,height=300)            
+            
+
+            # Create a Folium map
+            m = folium.Map(location=[39.949610, -75.150282], zoom_start=16)
+            # Add a marker to the map
+            folium.Marker([39.949610, -75.150282], popup="Marker Example").add_to(m)
+            # Render the map in Streamlit
+            st_folium(m, height=200, width=1200)
 if __name__=="__main__":
     main()   
