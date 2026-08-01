@@ -173,6 +173,30 @@ def main():
                                             tooltip=["Revenue","country",'city','id'])
             
             st_folium(gpdmap1,width=1200,height=300)            
+            iconlist=['star','th','times','gear','inbox','list-alt','volume-down','tags','font','align-left','dedent','image','tint','arrows','pause','eject','times-circle',
+                  'arrow-up','compress','gift','warning','comment','shopping-cart','key',
+                  'thumb-tack','upload','phone-square','unlock','bullhorn','arrow-circle-down','briefcase','link','copy',
+                  'square','list-ol','truck','columns','sort-up','undo','umbrella','cloud-download','h-square','angle-double-down','desktop','circle-o','mail-reply','reply-all','crop','info','puzzle-piece','fire-extinguisher','chevron-circle-up','unlock-alt','play-circle','leveldown','compass','dollar','rmb','rub','file','sort-amount-desc','long-arrow-up','vimeo-square','bank','google','paw','car','binoculars','at','pie-chart','toggle-on','cart-arrow-down','street-view','venus-mars','genderless','user-plus','train','battery-3','battery-quarter','object-group',
+                  'hourglass-start','hourglass','trademark','tv','map-pin','pause-circle','shopping-basket','wheelchair-alt','braille','hard-of-hearing','sign-language','music','th-list','search-plus','cog','road','lock','volume-up','book','bold','align-center','outdent','edit','step-backward','stop','chevron-left','check-circle','arrow-down','plus','leaf','exclamation-triangle','magnet','folder','bar-chart','gears','star-half','external-link','credit-card']
+
+            colors=['red','blue','green','orange','purple','darkred','lightred','beige','darkblue','darkgreen','cadetblue','darkpurple','white','pink','lightblue','lightgreen','gray','black']
+
+
+            xx=pd.read_excel('x.xlsx')
+
+            mapmarker1=folium.Map(location=[21.168247129485962, 79.93652343750001],
+                      zoom_start=4,
+                      tiles='https://mt.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', # google 
+                      attr='default')
+
+            for i in range(len(xx['lat'])):
+                      folium.Marker( location=[xx['lat'][i],xx['lng'][i]],
+                         tooltip=xx['city'][i],
+                         icon=folium.Icon(icon=iconlist[i+50], prefix='fa', color=colors[i]),
+                         popup=xx['population'][i]).add_to(mapmarker1)     
+    
+
+            st_folium(mapmarker1, width=1200, height=700)
             
 
             
