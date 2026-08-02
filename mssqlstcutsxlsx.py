@@ -18,8 +18,7 @@ st.set_page_config(layout="wide")
 
 
 
-vidfile=open("sql.mp4","rb").read()
-st.video(vidfile,loop=True, autoplay=True, muted=False )
+
 
 def main():
       st.title('Customer Overview')
@@ -29,7 +28,9 @@ def main():
                                                            'Vlookup'] )
       if option=='Existing Customers Table':
          st.subheader('Existing Customers Table Overview')
-         
+
+         vidfile=open("sql.mp4","rb").read()
+         st.video(vidfile,loop=True, autoplay=True, muted=False )
          dfConvProQty=pd.read_excel('cust1.xlsx')
          st.dataframe(dfConvProQty)
          
@@ -259,9 +260,11 @@ def main():
             st_folium(google_m_b1,width=1200,height=300)
 
       elif option=='Vlookup':
+      
             st.title('Vlookup Online')
-            st.write('Upload Source File and Entry File')
-            st.iframe("https://vlookupexcelwebapp-sd22cj8apf9ud2zoehaalz.streamlit.app", height=500, scrolling=True)
+            st.write('Please Upload Source FIle and Entry Data File')
+            st.link_button("Click to launch the application","https://vlookupexcelwebapp-sd22cj8apf9ud2zoehaalz.streamlit.app")
+
                   
 if __name__=="__main__":
     main()   
