@@ -220,8 +220,6 @@ def main():
             heatmapdata['rad']=heatmapdata['rad'].apply(lambda x:(x-heatmapdata['rad'].min())/(heatmapdata['rad'].max()-heatmapdata['rad'].min()))
             HeatMap(heatmapdata).add_to(google_m)
             st_folium(google_m,width=1200,height=300)
- 
-=
 
             google_m_b1 = folium.Map(  location=[24.547836328731947, 112.47906862329836], zoom_start=5,
                         tiles='https://mt.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', attr='default')
