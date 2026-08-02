@@ -30,7 +30,7 @@ def main():
          st.subheader('Existing Customers Table Overview')
 
          vidfile=open("sql.mp4","rb").read()
-         st.video(vidfile,loop=True, autoplay=True, muted=False )
+         st.video(vidfile,loop=True, autoplay=True, muted=True )
          dfConvProQty=pd.read_excel('cust1.xlsx')
          st.dataframe(dfConvProQty)
          
