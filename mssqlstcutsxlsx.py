@@ -222,8 +222,6 @@ def main():
 
             google_m_b1 = folium.Map(  location=[24.547836328731947, 112.47906862329836], zoom_start=5,
                         tiles='https://mt.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', attr='default')
-            google_m_b1
-            'blue', 'red', 'yellow'
 
             legendHtml = '''
             <div style="position: fixed; 
