@@ -200,7 +200,7 @@ def main():
 
             st_folium(mapmarker1, width=1200, height=700)
             
-            # heatmap basemap
+           
             google_m = folium.Map(  location=[24.547836328731947, 112.47906862329836], zoom_start=5,
                         tiles='https://mt.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', attr='default')
             salesworkb001=pd.read_excel('bubbleantheatmap - Copy.xlsx')
@@ -221,23 +221,23 @@ def main():
             HeatMap(heatmapdata).add_to(google_m)
             st_folium(google_m,width=1200,height=300)
  
-            #bubble circle
+=
 
             google_m_b1 = folium.Map(  location=[24.547836328731947, 112.47906862329836], zoom_start=5,
                         tiles='https://mt.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', attr='default')
-            google_m_b1
-            'blue', 'red', 'yellow'
+         
+           
 
             legendHtml = '''
-            <div style="position: fixed; 
-            bottom: 50px; left: 50px; width: 150px; height: 85px; 
-            border:2px solid grey; z-index:9999; font-size:14px;background-color:gray
-            ">&nbsp; Fuel Types <br>
-            &nbsp; <i class="fa fa-circle"
+             <div style="position: fixed; 
+             bottom: 50px; left: 50px; width: 150px; height: 85px; 
+             border:2px solid grey; z-index:9999; font-size:14px;background-color:gray
+             ">&nbsp; Fuel Types <br>
+             &nbsp; <i class="fa fa-circle"
                               style="color:yellow"></i> &nbsp;minor<br>
-            &nbsp; <i class="fa fa-circle"
-                              style="color:red"></i> &nbsp;primary<br>
-            &nbsp; <i class="fa fa-circle"
+             &nbsp; <i class="fa fa-circle"
+                               style="color:red"></i> &nbsp;primary<br>
+             &nbsp; <i class="fa fa-circle"
                               style="color:blue"></i> &nbsp; admin<br>
                   </div>
             '''
