@@ -18,11 +18,15 @@ st.set_page_config(layout="wide")
 
 
 
-
+vidfile=open("sql.mp4","rb").read()
+st.video(vidfile,loop=True, autoplay=True, muted=False )
 
 def main():
       st.title('Customer Overview')
-      option =st.sidebar.selectbox('Select an Operation', ["Existing Customers Table",'Upload CSV Files & Summary Review','Map Overview'] )
+      option =st.sidebar.selectbox('Select an Operation', ["Existing Customers Table",
+                                                           'Upload CSV Files & Summary Review',
+                                                           'Map Overview',
+                                                           'Vlookup'] )
       if option=='Existing Customers Table':
          st.subheader('Existing Customers Table Overview')
          
@@ -253,6 +257,11 @@ def main():
                   pulse_color="orange", weight=5, opacity=1).add_to(google_m_b1)
 
             st_folium(google_m_b1,width=1200,height=300)
+
+      elif option=='Vlookup':
+            st.title('Vlookup Online')
+            st.write('Upload Source File and Entry File')
+            st.iframe("https://vlookupexcelwebapp-sd22cj8apf9ud2zoehaalz.streamlit.app", height=500, scrolling=True)
                   
 if __name__=="__main__":
     main()   
