@@ -199,8 +199,7 @@ def main():
     
 
             st_folium(mapmarker1, width=1200, height=700)
-            
-           
+      
             google_m = folium.Map(  location=[24.547836328731947, 112.47906862329836], zoom_start=5,
                         tiles='https://mt.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', attr='default')
             salesworkb001=pd.read_excel('bubbleantheatmap - Copy.xlsx')
