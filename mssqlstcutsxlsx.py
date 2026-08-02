@@ -10,6 +10,8 @@ import matplotlib
 import folium
 import mapclassify
 from shapely.geometry import Point ,Polygon
+from folium.plugins import HeatMap
+from folium.plugins import AntPath
 
 st.set_page_config(layout="wide")
 
@@ -198,6 +200,65 @@ def main():
 
             st_folium(mapmarker1, width=1200, height=700)
             
+            # heatmap basemap
+            google_m = folium.Map(  location=[24.547836328731947, 112.47906862329836], zoom_start=5,
+                        tiles='https://mt.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', attr='default')
+            salesworkb001=pd.read_excel('bubbleantheatmap - Copy.xlsx')
+            
+            rad=salesworkb001['Revenue']
+            lat=salesworkb001['latitude']
+            lng=salesworkb001['longitude']
+            colors=salesworkb001['colors']
+            city_tooltip=salesworkb001['city']
+            prov_hover=salesworkb001['admin_name']
+            
+            
+            heatmapdata=pd.DataFrame({    'lat':lat,
+                                          'lng':lng,
+                                          'rad':rad})
+
+            heatmapdata['rad']=heatmapdata['rad'].apply(lambda x:(x-heatmapdata['rad'].min())/(heatmapdata['rad'].max()-heatmapdata['rad'].min()))
+            HeatMap(heatmapdata).add_to(google_m)
+            st_folium(google_m,width=1200,height=300)
+ 
+            #bubble circle
+
+            google_m_b1 = folium.Map(  location=[24.547836328731947, 112.47906862329836], zoom_start=5,
+                        tiles='https://mt.google.com/vt/lyrs=h&x={x}&y={y}&z={z}', attr='default')
+            google_m_b1
+            'blue', 'red', 'yellow'
+
+            legendHtml = '''
+            <div style="position: fixed; 
+            bottom: 50px; left: 50px; width: 150px; height: 85px; 
+            border:2px solid grey; z-index:9999; font-size:14px;background-color:gray
+            ">&nbsp; Fuel Types <br>
+            &nbsp; <i class="fa fa-circle"
+                              style="color:yellow"></i> &nbsp;minor<br>
+            &nbsp; <i class="fa fa-circle"
+                              style="color:red"></i> &nbsp;primary<br>
+            &nbsp; <i class="fa fa-circle"
+                              style="color:blue"></i> &nbsp; admin<br>
+                  </div>
+            '''
+            google_m_b1.get_root().html.add_child(folium.Element(legendHtml))
+            folium.LayerControl().add_to(google_m_b1)
+            
+            for i in range(len(lng)):
+                  folium.Circle( location=[lat[i], lng[i]],radius=rad[i]/1000, 
+                              popup=prov_hover[i],tooltip=city_tooltip[i], 
+                              fill=True,fill_color=colors[i], fill_opacity=0.8).add_to(google_m_b1)
+            pathLatLngs = [(lat[0],lng[0]), 
+               (lat[1],lng[1]),
+               (lat[2],lng[2]),
+               (lat[3],lng[3]), 
+               (lat[4],lng[4])]
+
+            AntPath(pathLatLngs, delay=200, dash_array=[10,50], color="blue", 
+                  pulse_color="orange", weight=5, opacity=1).add_to(google_m_b1)
+
+            st_folium(google_m_b1,width=1200,height=300)
+                  
 
             
 if __name__=="__main__":
