@@ -22,12 +22,12 @@ st.set_page_config(layout="wide")
 
 def main():
       st.title('Customer Overview')
-      option =st.sidebar.selectbox('Select an Operation', ["Existing Customers Table",
-                                                           'Upload CSV Files & Summary Review',
-                                                           'Map Overview',
-                                                           'Vlookup',
+      option =st.sidebar.selectbox('Select an Operation', ['Existing Customers Table Overview',
+                                                           'Summary with Updatable Feature via CSV Upload',
+                                                           'Sales_Revenue_Customer_Distribution Map Overview',
+                                                           'Vlookup_For_Quick_On_The_Go_CR',
                                                            'Sales_Funnel_Process Overview'] )
-      if option=='Existing Customers Table':
+      if option=='Existing Customers Table Overview':
          st.subheader('Existing Customers Table Overview')
 
          vidfile=open("sql.mp4","rb").read()
@@ -35,7 +35,7 @@ def main():
          dfConvProQty=pd.read_excel('cust1.xlsx')
          st.dataframe(dfConvProQty)
          
-      elif option=='Upload CSV Files & Summary Review':
+      elif option=='Summary with Updatable Feature via CSV Upload':
             uploaded_files = st.file_uploader("Upload data(CSV Only! And Ignore the ERROR )", accept_multiple_files=True, type="csv")
             df_csv_readin = None # assign to none to avoid initial error 
             dfConvProQty=pd.read_excel('cust1.xlsx')
@@ -159,7 +159,7 @@ def main():
                                  title='Number of customer per employee' )
                      st.plotly_chart(fig)          
          
-      elif option=='Map Overview':
+      elif option=='Sales_Revenue_Customer_Distribution Map Overview':
             worldcities_lonlat=None
 
             worldcities_lonlat=pd.read_csv('worldcities_lonlat.csv')
@@ -260,7 +260,7 @@ def main():
 
             st_folium(google_m_b1,width=1200,height=300)
 
-      elif option=='Vlookup':
+      elif option=='Vlookup_For_Quick_On_The_Go_CR':
       
             st.title('Vlookup Online')
             st.write('Please Upload Source FIle and Entry Data File')
