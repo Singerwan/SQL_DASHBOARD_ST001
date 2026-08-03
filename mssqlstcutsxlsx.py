@@ -25,7 +25,8 @@ def main():
       option =st.sidebar.selectbox('Select an Operation', ["Existing Customers Table",
                                                            'Upload CSV Files & Summary Review',
                                                            'Map Overview',
-                                                           'Vlookup'] )
+                                                           'Vlookup',
+                                                           'Sales_Funnel_Process Overview'] )
       if option=='Existing Customers Table':
          st.subheader('Existing Customers Table Overview')
 
@@ -265,6 +266,15 @@ def main():
             st.write('Please Upload Source FIle and Entry Data File')
             st.link_button("Click to launch the application","https://vlookupexcelwebapp-sd22cj8apf9ud2zoehaalz.streamlit.app")
 
+      elif option=='Sales_Funnel_Process Overview':      
+          funnel_s_all=pd.read_excel('funnelchartdata.xlsx')
+          fig_funnel=px.funnel(data_frame=funnel_s_all,
+                              x=funnel_s_all['Values'],
+                              y=funnel_s_all['stage'],
+                              color="Sales",
+                              color_discrete_sequence=["red", "blue", "green", "orange","cyan","indigo"])        
+          st.plotly_chart(fig_funnel)  
+          st.dataframe(funnel_s_all)
                   
 if __name__=="__main__":
     main()   
