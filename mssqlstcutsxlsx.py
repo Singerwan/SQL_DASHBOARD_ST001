@@ -266,9 +266,9 @@ def main():
             st.write('Please Upload Source FIle and Entry Data File')
             st.link_button("Click to launch the application","https://vlookupexcelwebapp-sd22cj8apf9ud2zoehaalz.streamlit.app")
 
-      elif option=='Sales_Funnel_Process Overview':
+      elif option== 'Sales_Funnel_Process Overview':
             funnel_s_all=pd.read_excel('funnelchartdata.xlsx')
-            fig_funnel=px.funnel(data_frame=funnel_s_all,
+            fig_funnel=px.funnel(   data_frame=funnel_s_all,
                                     x=funnel_s_all['Values'],
                                     y=funnel_s_all['stage'],
                                     color="Sales",
