@@ -21,7 +21,8 @@ def main():
                                                            'Summary with Updatable Feature via CSV Upload',
                                                            'Sales_Revenue_Customer_Distribution Map Overview',
                                                            'Vlookup_For_Quick_On_The_Go_CR',
-                                                           'Sales_Funnel_Process Overview'] )
+                                                           'Sales_Funnel_Process Overview',
+                                                           'Maximum Profit Units and Revenue Caculator'] )
       
       if option=='Existing Customers Table Overview':
          st.subheader('Existing Customers Table Overview')
@@ -271,7 +272,10 @@ def main():
           st.plotly_chart(fig_funnel)  
           st.dataframe(funnel_s_all)
        
-
+      elif option=='Maximum Profit Units and Revenue Caculator':
+      
+            st.title('Maximum Profit Unit and Revenue Calculator')
+            st.link_button("Click to launch the application","https://appmaxprofitunitandrevenue-8ykhmjw4maxnmmesjqdty7.streamlit.app")
 
 if __name__=="__main__":
     main()   
