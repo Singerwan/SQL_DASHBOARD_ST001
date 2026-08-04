@@ -277,7 +277,7 @@ def main():
           st.dataframe(funnel_s_all)
 
 
-      elif option=='Maximum Revenue and Profit Unit Calculator'
+      elif option=='Maximum Revenue and Profit Unit Calculator':
             import streamlit.components.v1 as components
             import streamlit as st
             from sympy import symbols, Function, solve, Eq,plot
