@@ -421,5 +421,7 @@ def main():
             with open("max_revenue.html", "r", encoding="utf-8") as html_file:
                 html_content = html_file.read()
                 components.html(html_content, height=1150,width=1200)            
+
+
 if __name__=="__main__":
     main()   
