@@ -283,6 +283,5 @@ def main():
             st.title('Flowchart Diagram_Workflow_Gallery')
             st.link_button("Click to launch the application","https://flowchartgallery-ngqogh4qwpd4qbwy4jjynh.streamlit.app")
 
-
 if __name__=="__main__":
     main()   
