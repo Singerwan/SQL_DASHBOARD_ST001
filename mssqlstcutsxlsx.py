@@ -22,7 +22,8 @@ def main():
                                                            'Sales_Revenue_Customer_Distribution Map Overview',
                                                            'Vlookup_For_Quick_On_The_Go_CR',
                                                            'Sales_Funnel_Process Overview',
-                                                           'Maximum Profit Units and Revenue Caculator'] )
+                                                           'Maximum Profit Units and Revenue Caculator',
+                                                           'Flowchart Diagram_Workflow_Gallery'] )
       
       if option=='Existing Customers Table Overview':
          st.subheader('Existing Customers Table Overview')
@@ -276,6 +277,12 @@ def main():
       
             st.title('Maximum Profit Unit and Revenue Calculator')
             st.link_button("Click to launch the application","https://appmaxprofitunitandrevenue-8ykhmjw4maxnmmesjqdty7.streamlit.app")
+
+      elif option=='Flowchart Diagram_Workflow_Gallery':
+      
+            st.title('Flowchart Diagram_Workflow_Gallery')
+            st.link_button("Click to launch the application","https://flowchartgallery-ngqogh4qwpd4qbwy4jjynh.streamlit.app")
+
 
 if __name__=="__main__":
     main()   
